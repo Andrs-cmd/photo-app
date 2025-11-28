@@ -1,42 +1,79 @@
-#root {
-  max-width: 1280px;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@400;700&display=swap');
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  /* Plantas decorativas en el fondo de toda la página */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255,107,53,0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(30,144,255,0.1) 0%, transparent 20%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 30%);
+}
+
+.main-content {
+  flex: 1;
+  padding: 5rem 2rem;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+  /* MARGIN TOP AUMENTADO para el header fijo */
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+  border: 3px solid;
+  border-image: linear-gradient(45deg, #ff6b35, #1e90ff, #ff6b35) 1;
+  box-shadow: 
+    0 25px 80px rgba(255, 107, 53, 0.25),
+    0 15px 40px rgba(30, 144, 255, 0.2),
+    inset 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+/* Título con efectos mejorados */
+.galeria-titulo {
   text-align: center;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 
+    0 0 20px #ff6b35,
+    0 0 40px #ff6b35,
+    3px 3px 0px #1e90ff,
+    6px 6px 0px rgba(30, 144, 255, 0.3);
+  position: relative;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+  font-family: 'Pacifico', cursive;
+  font-style: italic;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive */
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .main-content {
+    padding: 3rem 1rem;
+    /* Margin top menor en móvil */
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+    border-radius: 20px;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .galeria-titulo {
+    font-size: 2.8rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
